@@ -28,9 +28,9 @@ def login_demo():
         'code' : CODE,
     }
     header = {'Accept': 'application/json'}
+    
     r = requests.post('https://github.com/login/oauth/access_token', data=data, headers=header)
     r_js = r.json()
-    print(r_js['access_token'])
     token = r_js['access_token']
 
     ### GET 取得資料
@@ -38,16 +38,12 @@ def login_demo():
         'Accept': 'application/json',
         'Authorization': f'token {token}'
     }
-    Github_header = {
-        'Accept': 'application/json',
-        'Authorization': f'token {token}'
-    }
+   
     result = requests.get('https://api.github.com/user', headers=GET_header)
     result_user = result.json()
     result_list.append(result_user)
 
-    result2 = requests.get(f'https://api.github.com/user/repos', headers=Github_header)
-    #print(result2.url)
+    result2 = requests.get(f'https://api.github.com/user/repos', headers=GET_header)
     result_repos = result2.json()
 
     repo_list = []
