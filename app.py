@@ -9,7 +9,7 @@ CLIENT_SECRET = 'YOUR CLIENT SECRET'
 result_list = []
 
 @app.route("/")
-def hello():
+def mainpage():
     return render_template('main.html')
 
 @app.route("/oauthlab", methods=['GET'])
@@ -55,9 +55,9 @@ def login_demo():
         repo_list.append(result_repo['name'])
     result_list.append(repo_list)
 
-    return redirect(url_for('welcome'))
+    return redirect(url_for('hello'))
 @app.route("/users")
-def welcome():
+def hello():
     global result_list
 
     return render_template('hello.html', data=result_list)
