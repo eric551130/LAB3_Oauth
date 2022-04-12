@@ -11,9 +11,10 @@
   const CLIENT_ID = 'YOUR CLINET ID';
   const REDIRECT_URI = 'http://127.0.0.1:5000/oauthlab';
   const AUTH_URI = 'https://github.com/login/oauth/authorize';
-
+  const SCOPES = 'repo'
+  
   const link = document.getElementById('git_login');
-  link.href = `${AUTH_URI}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
+  link.href = `${AUTH_URI}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}`;
 </script>
 
 </body>
